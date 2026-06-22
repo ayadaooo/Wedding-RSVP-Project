@@ -35,6 +35,9 @@ const rsvpAPI = fetch(
       foundGuest.status = "Confirmed";
       console.log(foundGuest.status);
       responseMsg.textContent = `Thank you ${foundGuest.firstName} ${foundGuest.lastName}! You are now confirmed!`;
+      yes.classList.add("selected");
+      yes.disabled = true;
+      no.disabled = true;
       fetch(
         "https://script.google.com/macros/s/AKfycbxFa8kJRru2cxofF6UU2VsFM6uwJU0BJoSVAjki4s9zJ8R0V75x5p6-4usdjDZv1iSkZA/exec",
         {
@@ -48,6 +51,9 @@ const rsvpAPI = fetch(
       foundGuest.status = "Rejected";
       console.log(foundGuest.status);
       responseMsg.textContent = `Thank you ${foundGuest.firstName} ${foundGuest.lastName}! We understand you can't make it, we wish you the best!`;
+      no.classList.add("selected");
+      yes.disabled = true;
+      no.disabled = true;
       fetch(
         "https://script.google.com/macros/s/AKfycbxFa8kJRru2cxofF6UU2VsFM6uwJU0BJoSVAjki4s9zJ8R0V75x5p6-4usdjDZv1iSkZA/exec",
         {
@@ -61,3 +67,65 @@ const rsvpAPI = fetch(
     no.addEventListener("click", noClick);
     console.log(data);
   });
+
+// function generateIDs() {
+//   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+//   const data = sheet.getDataRange().getValues();
+
+//   for (let i = 1; i < data.length; i++) {
+//     const row = data[i];
+//     let guestId = row[3];
+//     if (row[3] === "" || row[3] === "UNIQUE ID") {
+//       guestId = Utilities.getUuid().slice(0, 8);
+//       sheet.getRange(i + 1, 4).setValue(guestId);
+//     }
+//     if (row[5] === "") {
+//       const newLink = `https://jaysonleirsvp.netlify.app/?id=${guestId}`;
+//       sheet.getRange(i + 1, 6).setValue(newLink);
+//     }
+//     if (row[6] === "") {
+//       const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://jaysonleirsvp.netlify.app/?id=${guestId}`;
+//       sheet.getRange(i + 1, 7).setValue(qrCode);
+//     }
+//   }
+// }
+
+// generating ids manually
+// function generateMissingIds() {
+//   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+//   const data = sheet.getDataRange().getValues();
+
+//   for (let i = 1; i < data.length; i++) {
+//     const row = data[i];
+//     if (row[3] === "" || row[3] === "UNIQUE ID") {
+//       const newId = Utilities.getUuid().slice(0, 8);
+//       sheet.getRange(i + 1, 4).setValue(newId);
+//     }
+//   }
+// }
+
+// function generateNewLink() {
+//   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+//   const data = sheet.getDataRange().getValues();
+
+//   for (let i = 1; i < data.length; i++) {
+//     const row = data[i];
+//     if (row[5] === "") {
+//       const newLink = `https://jaysonleirsvp.netlify.app/?id=${row[3]}`;
+//       sheet.getRange(i + 1, 6).setValue(newLink);
+//     }
+//   }
+// }
+
+// function generateQrCode() {
+//   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+//   const data = sheet.getDataRange().getValues();
+
+//   for (let i = 1; i < data.length; i++) {
+//     const row = data[i];
+//     if (row[6] === "") {
+//       const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://jaysonleirsvp.netlify.app/?id=${row[3]}`;
+//       sheet.getRange(i + 1, 7).setValue(qrCode);
+//     }
+//   }
+// }
