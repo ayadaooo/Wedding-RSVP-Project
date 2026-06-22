@@ -1,3 +1,12 @@
+const cursor = document.createElement("div");
+cursor.id = "cursor";
+document.body.appendChild(cursor);
+
+window.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
 const idGet = new URLSearchParams(window.location.search);
 
 const userId = idGet.get("id");
@@ -8,6 +17,8 @@ const rsvpAPI = fetch(
 )
   .then((response) => response.json())
   .then((data) => {
+    const spinner = document.querySelector("#spinner");
+    spinner.style.display = "none";
     const foundGuest = data.find((guest) => guest.id === userId);
     console.log(foundGuest);
 
