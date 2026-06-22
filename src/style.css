@@ -227,26 +227,45 @@ body {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
   .hero {
-    padding: 40px 24px;
+    max-width: 100%;
+    padding: 56px 28px;
   }
 
   .hero h1 {
-    font-size: 26px;
+    font-size: 30px;
   }
 
   #nameDisplay {
-    font-size: 19px;
+    font-size: 21px;
+  }
+
+  #responseMsg {
+    font-size: 18px;
+  }
+
+  .content h2 {
+    font-size: 22px;
   }
 
   .yes,
   .no {
-    font-size: 18px;
-    padding: 16px 32px;
+    font-size: 20px;
+    padding: 18px 36px;
   }
 
   .contact {
-    font-size: 17px;
-    padding: 14px 28px;
+    font-size: 18px;
+    padding: 16px 32px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  #cursor {
+    display: none;
   }
 }
