@@ -50,16 +50,3 @@ const rsvpAPI = fetch(
     no.addEventListener("click", noClick);
     console.log(data);
   });
-
-function generateNewLink() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
-  const data = sheet.getDataRange().getValues();
-
-  for (let i = 1; i < data.length; i++) {
-    const row = data[i];
-    if (row[5] === "") {
-      const newLink = `https://YOUR-SITE-URL.com/index.html?id=${row[3]}`;
-      sheet.getRange(i + 1, 6).setValue(newLink);
-    }
-  }
-}
