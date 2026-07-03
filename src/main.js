@@ -23,8 +23,7 @@ const rsvpAPI = fetch(
     console.log(foundGuest);
 
     const nameDisplay = document.querySelector("#nameDisplay");
-    nameDisplay.textContent = `Hello ${foundGuest.firstName} ${foundGuest.lastName}! Seats: ${foundGuest.seats}`;
-
+    nameDisplay.innerHTML = `Hello, ${foundGuest.firstName}!<br>We've reserved ${foundGuest.seats} seat/s for you.`;
     const yes = document.querySelector(".yes");
     const no = document.querySelector(".no");
 

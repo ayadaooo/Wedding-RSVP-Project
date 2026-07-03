@@ -4,20 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
     <title>RSVP</title>
     <link rel="stylesheet" href="src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="hero">
-      <h1>Welcome to Jayson and Lei's Wedding!</h1>
+      <p class="invited">YOU'RE INVITED</p>
+      <p class="subtitle">to celebrate the wedding of</p>
+      <div class="groom">
+        <h1>JAYSON</h1>
+        <p class="surname">Javier</p>
+      </div>
+      <p class="ampersand">&</p>
+      <div class="bride">
+        <h1>LEI</h1>
+        <p class="surname">Nagales</p>
+      </div>
+      <p class="date">JANUARY 29, 2027</p>
       <div id="spinner"></div>
       <p id="nameDisplay">Loading...</p>
-      <p id="responseMsg"></p>
       <div class="content">
-        <h2>Are you able to attend?</h2>
+        <p class="joining">WILL YOU BE JOINING US?</p>
+        <p class="reserve">Please let us know so we can reserve your seat.</p>
         <button class="yes">YES</button>
         <button class="no">NO</button>
       </div>
+      <p id="responseMsg"></p>
+      <p class="thankyou">Thank you!</p>
+      <p class="couple-sign">JAYSON & LEI</p>
       <a href="mailto:2027.javiers@gmail.com" class="contact">Contact Us</a>
     </div>
 
